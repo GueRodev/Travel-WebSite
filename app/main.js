@@ -23,7 +23,6 @@ if (navClose) {
     });
 }
 
-
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link');
 
@@ -34,3 +33,12 @@ const navMenu = document.getElementById('nav-menu');
 }
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
+
+// ADD BLUR TO HEADER
+const blurHeader = () => {
+    const header = document.getElementById('header');
+    // Cuando el desplazamiento sea mayor que 50 veces la altura del viewport, agrega la clase blur-header a la etiqueta header.
+    this.scrollY >= 50 ? header.classList.add('blur-header') : header.classList.remove('blur-header');
+};
+
+window.addEventListener('scroll', blurHeader);
