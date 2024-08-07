@@ -453,6 +453,50 @@ img {
   row-gap: 2.5rem;
 }
 
+/*=============== VIDEO GALLERY ===============*/
+.video-gallery {
+  padding: 3rem 0;
+  background-color: #000;
+}
+
+.video-gallery .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-card .video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.video-card:hover .video {
+  transform: scale(1.1);
+}
+
+.video-card:hover .video::before {
+  display: none;
+}
+
+.video-card:hover .video {
+  filter: brightness(0.7);
+}
+
+/* Video playback control */
+.video-card .video:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+
 /*=============== JOIN ===============*/
 
 
