@@ -586,13 +586,13 @@ img {
   row-gap: .75rem;
 }
 
-.footer__links{
+.footer__link{
   color: var(--text-color);
   transition: color .4s;
 }
 
 .footer__link:hover{
-  color: var(--text-color);
+  color: var(--title-color);
 }
 
 .footer__group,
