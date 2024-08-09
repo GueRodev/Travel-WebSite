@@ -1,5 +1,5 @@
 
-// Show Menu
+/*=============== Show MENU ===============*/
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
         nav = document.getElementById(navId);
@@ -43,7 +43,6 @@ const blurHeader = () => {
 
 window.addEventListener('scroll', blurHeader);
 
-
 /*=============== Mouseover Videos ===============*/
 document.addEventListener('DOMContentLoaded', function () {
     const videos = document.querySelectorAll('.video');
@@ -59,3 +58,32 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/*=============== SHOW SCROLL UP ===============*/
+const scrollUp = () =>{
+    const scrollUp = document.getElementById('scroll-up')
+    this.scrollY >= 350 ? scrollUp.classList.add('show-scroll') 
+    : scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]')
+
+const scrollActive = () =>{
+    const scrollY = window.pageYOffset
+
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight,
+                sectionTop = current.offsetTop - 58,
+                sectionId = current.getAttribute('id')
+                sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId)
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            sectionsClass.classList.add('active-link')
+        }else{
+            sectionsClass.classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
