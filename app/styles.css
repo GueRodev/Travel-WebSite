@@ -173,10 +173,6 @@ img {
   transition: width .3s;
 }
 
-.nav__link:hover::after{
-  width: 70%;
-}
-
 .nav__toggle,
 .nav__close {
   display: flex;
@@ -484,7 +480,9 @@ img {
 }
 
 
-/*=============== crear efecto de scroll hacia para recorrer la imagen ===============*/
+
+
+/*=============== Pendiente crear efecto de scroll hacia para recorrer la imagen ===============*/
 
 .explore__shadow{
   position: absolute;
@@ -501,9 +499,10 @@ img {
 
 .explore__content{
   position: relative;
-  padding-top: 16rem;
+  padding-top: 20rem;
   text-align: center;
   row-gap: 2.5rem;
+  color: var(--title-color);
 }
 
 /*=============== VIDEO GALLERY ===============*/
@@ -825,6 +824,101 @@ img {
 
   }
   
+}
+
+@media screen and (min-width: 1152px) {
+  .container{
+    margin-inline: auto;
+  }
+  
+  .section{
+    padding-block: 7rem 2rem;
+  }
+
+  .nav{
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .blur-header::after{
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px); /*for safari*/
+  }
+
+  .home__container{
+    grid-template-columns: initial;
+    justify-content: initial;
+    row-gap: 4rem;
+    padding-top: 6.5rem;
+  }
+
+  .home__shadow{
+    height: 980px;
+  }
+
+  .home__data{
+    text-align: initial;
+    width: 480px;
+  }
+
+  .home__subtitle{
+    font-size: var(--h2-font-size)
+  }
+
+  .home__description{
+    margin-bottom: 2.5rem;
+  }
+
+  .home__cards{
+    grid-template-columns: repeat(4, 260px);
+  }
+
+  .home__card-title{
+    left: 1.5rem;
+    bottom: 1.5rem;
+  }
+
+  .button{
+    column-gap: 1.5rem;
+  }
+
+  .about__container{
+    grid-template-columns: 400px 460px;
+    column-gap: 8.5rem;
+    padding-block: 1rem;
+  }
+
+  .about__description{
+    margin-bottom: 3rem;
+  }
+
+  .about__img{
+    width: 460px;
+
+  }
+
+  .popular__container{
+    grid-template-columns: repeat(4, 250px);
+    column-gap: 3rem;
+    padding-top: 4rem;
+    
+  }
+
+  .popular__title{
+    font-size: var(--h2-font-size);
+
+  }
+
+  .popular__location{
+    font-size: var(--normal-font-size);
+  }
+
+  .explore__img{
+    height: 600px;
+  }
+
+
+
+
 }
 
 
