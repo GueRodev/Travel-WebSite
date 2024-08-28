@@ -479,9 +479,6 @@ img {
   object-position: center;
 }
 
-
-
-
 /*=============== Pendiente crear efecto de scroll hacia para recorrer la imagen ===============*/
 
 .explore__shadow{
@@ -916,7 +913,44 @@ img {
     height: 600px;
   }
 
+  .explore__content{
+    padding-top: 28rem;
+    grid-template-columns: 670px;
+  }
 
+  .join__container{
+    grid-template-columns: 460px 340px;
+    column-gap: 8.5rem;
+    scroll-padding-block: 1rem 5rem;
+  }
+
+  .join__img{
+    width: 460px;
+  }
+
+  .join__description{
+    margin-top: 3rem;
+  }
+
+  .footer{
+    padding-block: 5rem 3rem;
+  }
+
+  .footer__title{
+    margin-bottom: 1.5rem;
+  }
+
+  .footer__group{
+    margin-top: 7rem;
+  }
+
+  .footer__social{
+    column-gap: 2rem;
+  }
+
+  .footer__social-link{
+    font-size: 1.5rem;
+  }
 
 
 }
