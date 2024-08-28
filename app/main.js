@@ -1,5 +1,5 @@
 
-/*=============== Show MENU ===============*/
+/*=============== Mostrar MENU ===============*/
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
         nav = document.getElementById(navId);
@@ -13,7 +13,7 @@ const showMenu = (toggleId, navId) => {
 
 showMenu("nav-toggle", "nav-menu");
 
-/*=============== Close MENU ===============*/
+/*=============== Cerrar MENU ===============*/
 const navClose = document.getElementById("nav-close");
 
 if (navClose) {
@@ -23,7 +23,7 @@ if (navClose) {
     });
 }
 
-/*=============== REMOVE MENU MOBILE ===============*/
+/*=============== REMOVER MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link');
 
 const linkAction = () => {
@@ -44,19 +44,38 @@ const blurHeader = () => {
 window.addEventListener('scroll', blurHeader);
 
 /*=============== Mouseover Videos ===============*/
-document.addEventListener('DOMContentLoaded', function () {
-    const videos = document.querySelectorAll('.video');
+document.querySelectorAll('.accordion-header').forEach(button => {
+    button.addEventListener('click', () => {
+        const accordionItem = button.parentElement;
+        const accordionContent = accordionItem.querySelector('.accordion-content');
+        const video = accordionContent.querySelector('.video');
 
-    videos.forEach(video => {
-        video.addEventListener('mouseover', () => {
-            video.play();
+        // Cerrar cualquier otro acordeón activo
+        document.querySelectorAll('.accordion-item.active').forEach(item => {
+            if (item !== accordionItem) {
+                item.classList.remove('active');
+                const content = item.querySelector('.accordion-content');
+                const vid = content.querySelector('.video');
+                content.style.maxHeight = 0;
+                vid.pause();
+                vid.currentTime = 0;
+            }
         });
-        video.addEventListener('mouseout', () => {
-            video.pause();
-            video.currentTime = 0;
-        });
+
+        // Toggle el acordeón seleccionado
+        accordionItem.classList.toggle('active');
+
+        if (accordionItem.classList.contains('active')) {
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            video.play(); // Reproduce el video
+        } else {
+            accordionContent.style.maxHeight = 0;
+            video.pause(); // Pausa el video
+            video.currentTime = 0; // Resetea el video al inicio
+        }
     });
 });
+
 
 /*=============== SHOW SCROLL UP ===============*/
 const scrollUp = () =>{
@@ -103,7 +122,7 @@ sr.reveal(`.home__card`, {delay: 600, distance: '100px', interval: 100})
 sr.reveal(`.about__data, .join__image`, {origin: 'right'})
 sr.reveal(`.about__image, .join__data`, {origin: 'left'})
 sr.reveal(`.popular__card`, {interval: 200})
-sr.reveal(`.video-card`, {delay: 600, distance: '100px', interval: 100})
+sr.reveal(`.accordion-item`, {delay: 400, distance: '50px', interval: 100})
 
 
 
